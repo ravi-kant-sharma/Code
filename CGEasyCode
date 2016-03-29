@@ -1,0 +1,38 @@
+public class CGEasyCode {
+	
+	public static void main(String[] args) {
+		System.out.println(passCount(5,4,3));
+	}
+	public static int passCount(int input1,int input2,int input3){
+		int[] players = new int[input1];
+		int counter = 0;
+		int passCounts = 0;
+		while(true){
+			players[counter]++;
+			if(players[counter] == input2){
+				break;
+			}
+			passCounts++;
+			if(players[counter] % 2 == 0){
+				int l = input3;
+				while(l != 0){
+					if(counter == (input1-1)){
+						counter = -1;
+					}
+					counter++;
+					l--;
+				}
+			}else{
+				int l = input3;
+				while(l != 0){
+					if(counter == 0){
+						counter = input1;
+					}
+					counter--;
+					l--;
+				}
+			}
+		}
+		return passCounts;
+	}
+	
