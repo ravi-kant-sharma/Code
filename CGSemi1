@@ -1,0 +1,54 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class CandidateCode
+{
+	
+	public static int[] joinedPipes(int[] input1,int input2){
+	    List<Integer> list = new LinkedList<Integer>();
+	    List<Integer> output = new ArrayList<Integer>();
+	    for(int i=0;i<input2;i++){
+	    	list.add(input1[i]);
+	    }
+	    while(list.size() > 1){
+	    	Collections.sort(list);
+	    	System.out.println(list);
+	    	int firstMin = list.get(0);
+	    	int secondMin = list.get(1);
+	    	int sum = firstMin + secondMin;
+	    	list.remove(0);
+	    	System.out.println(list);
+	    	list.remove(0);
+	    	System.out.println(list);
+	    	list.add(sum);
+	    	output.add(sum);
+	    	System.out.println(list);
+	    }
+	    
+	    Collections.sort(output);
+		return convert(output);
+		
+	}
+	
+	public static int[] convert(List<Integer> IntegerList) {
+
+    int s = IntegerList.size();
+    int[] intArray = new int[s];
+    for (int i = 0; i < s; i++) {
+        intArray[i] = IntegerList.get(i).intValue();
+    }
+    return intArray;
+}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int[] input1 = {4,3,2,6};
+		int[] output = joinedPipes(input1,4);
+		for(int a : output){
+		System.out.println(a);
+		}
+	}
+}
